@@ -34,7 +34,7 @@ class ClubCouncilAndEntityWidgets {
     Function update,
     Function toggler,
     bool toggling,
-    GlobalKey<ScaffoldState> scaffoldKey,
+    GlobalKey<ScaffoldMessengerState> scaffoldMessengerKey,
   }) {
     assert((isCouncil == true && isClub == false && isEntity == false) ||
         (isCouncil == false && isClub == true && isEntity == false) ||
@@ -177,7 +177,7 @@ class ClubCouncilAndEntityWidgets {
                         update: update,
                         toggler: toggler,
                         toggling: toggling,
-                        scaffoldKey: scaffoldKey,
+                        scaffoldMessengerKey: scaffoldMessengerKey,
                       )
                     : Container(),
                 _data == null
@@ -200,7 +200,7 @@ class ClubCouncilAndEntityWidgets {
     Function update,
     Function toggler,
     bool toggling,
-    GlobalKey<ScaffoldState> scaffoldKey,
+    GlobalKey<ScaffoldMessengerState> scaffoldMessengerKey,
   }) {
     // bool _toggling = false;
 
@@ -253,8 +253,10 @@ class ClubCouncilAndEntityWidgets {
                                 "Are you sure you wish to mute all the clubs in this council? You will no longer receive any notification for workshops or events of this council.",
                           );
                           if (unsub) {
-                            scaffoldKey.currentState.removeCurrentSnackBar();
-                            scaffoldKey.currentState.showSnackBar(SnackBar(
+                            scaffoldMessengerKey.currentState
+                                .removeCurrentSnackBar();
+                            scaffoldMessengerKey.currentState
+                                .showSnackBar(SnackBar(
                               content: Text('Muting. Please Wait'),
                               duration: Duration(seconds: 10),
                             ));
@@ -275,9 +277,10 @@ class ClubCouncilAndEntityWidgets {
                                       .then((_) =>
                                           print('Unsubscribed from C_$i'));
                                 }
-                                scaffoldKey.currentState
+                                scaffoldMessengerKey.currentState
                                     .removeCurrentSnackBar();
-                                scaffoldKey.currentState.showSnackBar(SnackBar(
+                                scaffoldMessengerKey.currentState
+                                    .showSnackBar(SnackBar(
                                   content: Text('Successfully Muted!'),
                                   duration: Duration(seconds: 3),
                                 ));
@@ -333,7 +336,7 @@ class ClubCouncilAndEntityWidgets {
                                           .unsubscribeFromTopic(
                                               'C_${clubMap.id}');
                                     }
-                                    scaffoldKey.currentState
+                                    scaffoldMessengerKey.currentState
                                         .showSnackBar(SnackBar(
                                       content: Text('Successfully Muted'),
                                       duration: Duration(seconds: 3),
@@ -356,7 +359,8 @@ class ClubCouncilAndEntityWidgets {
                                     "Error in toggleing: ${onError.toString()}");
                               });
                             } else {
-                              scaffoldKey.currentState.showSnackBar(SnackBar(
+                              scaffoldMessengerKey.currentState
+                                  .showSnackBar(SnackBar(
                                 content: Text('Already Muted!'),
                                 duration: Duration(seconds: 3),
                               ));
@@ -404,7 +408,7 @@ class ClubCouncilAndEntityWidgets {
                                               'E_${entityMap.id}');
                                     }
 
-                                    scaffoldKey.currentState
+                                    scaffoldMessengerKey.currentState
                                         .showSnackBar(SnackBar(
                                       content: Text('Successfully Muted'),
                                       duration: Duration(seconds: 3),
@@ -427,7 +431,8 @@ class ClubCouncilAndEntityWidgets {
                                     "Error in toggleing: ${onError.toString()}");
                               });
                             } else {
-                              scaffoldKey.currentState.showSnackBar(SnackBar(
+                              scaffoldMessengerKey.currentState
+                                  .showSnackBar(SnackBar(
                                 content: Text('Already Muted!'),
                                 duration: Duration(seconds: 3),
                               ));
@@ -473,8 +478,10 @@ class ClubCouncilAndEntityWidgets {
                       if (!toggling) {
                         toggler();
                         if (isCouncil) {
-                          scaffoldKey.currentState.removeCurrentSnackBar();
-                          scaffoldKey.currentState.showSnackBar(SnackBar(
+                          scaffoldMessengerKey.currentState
+                              .removeCurrentSnackBar();
+                          scaffoldMessengerKey.currentState
+                              .showSnackBar(SnackBar(
                             content: Text('Unmuting. Please Wait'),
                             duration: Duration(seconds: 10),
                           ));
@@ -495,8 +502,10 @@ class ClubCouncilAndEntityWidgets {
                                     .subscribeToTopic('C_$i')
                                     .then((_) => print('Subscribed to C_$i'));
                               }
-                              scaffoldKey.currentState.removeCurrentSnackBar();
-                              scaffoldKey.currentState.showSnackBar(SnackBar(
+                              scaffoldMessengerKey.currentState
+                                  .removeCurrentSnackBar();
+                              scaffoldMessengerKey.currentState
+                                  .showSnackBar(SnackBar(
                                 content: Text('Successfully Unmuted!'),
                                 duration: Duration(seconds: 3),
                               ));
@@ -543,7 +552,7 @@ class ClubCouncilAndEntityWidgets {
                                         .unsubscribeFromTopic(
                                             'C_${clubMap.id}');
                                   }
-                                  scaffoldKey.currentState
+                                  scaffoldMessengerKey.currentState
                                       .showSnackBar(SnackBar(
                                     content: Text('Successfully Unmuted!'),
                                     duration: Duration(seconds: 3),
@@ -566,7 +575,8 @@ class ClubCouncilAndEntityWidgets {
                                   "Error in toggleing: ${onError.toString()}");
                             });
                           } else {
-                            scaffoldKey.currentState.showSnackBar(SnackBar(
+                            scaffoldMessengerKey.currentState
+                                .showSnackBar(SnackBar(
                               content: Text('Already Unmuted!'),
                               duration: Duration(seconds: 3),
                             ));
@@ -604,7 +614,7 @@ class ClubCouncilAndEntityWidgets {
                                         .unsubscribeFromTopic(
                                             'E_${entityMap.id}');
                                   }
-                                  scaffoldKey.currentState
+                                  scaffoldMessengerKey.currentState
                                       .showSnackBar(SnackBar(
                                     content: Text('Successfully Unmuted!'),
                                     duration: Duration(seconds: 3),
@@ -627,7 +637,8 @@ class ClubCouncilAndEntityWidgets {
                                   "Error in toggleing: ${onError.toString()}");
                             });
                           } else {
-                            scaffoldKey.currentState.showSnackBar(SnackBar(
+                            scaffoldMessengerKey.currentState
+                                .showSnackBar(SnackBar(
                               content: Text('Already Unuted!'),
                               duration: Duration(seconds: 3),
                             ));

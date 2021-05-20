@@ -964,7 +964,7 @@ class _CreateEditScreenState extends State<CreateEditScreen> {
                             if (isconfirmed == false || isconfirmed == null)
                               return;
 
-                            Scaffold.of(context).showSnackBar(
+                            ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
                                 content: widget.workshopData == null
                                     ? Text('Creating ...')

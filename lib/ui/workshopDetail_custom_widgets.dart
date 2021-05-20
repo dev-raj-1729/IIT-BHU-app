@@ -28,7 +28,7 @@ class WorkshopDetailCustomWidgets {
   final BuildContext context;
   final bool isPast;
   final int is_interested;
-  final GlobalKey<ScaffoldState> scaffoldKey;
+  final GlobalKey<ScaffoldMessengerState> scaffoldMessengerKey;
   final Function() updateButton;
   final Function() reload;
   final Function() deleteWorkshop;
@@ -40,7 +40,7 @@ class WorkshopDetailCustomWidgets {
     @required this.context,
     @required this.isPast,
     @required this.is_interested,
-    @required this.scaffoldKey,
+    @required this.scaffoldMessengerKey,
     @required this.updateButton,
     @required this.reload,
     @required this.deleteWorkshop,
@@ -429,7 +429,7 @@ class WorkshopDetailCustomWidgets {
                                           Clipboard.setData(new ClipboardData(
                                                   text: uri.toString()))
                                               .then((_) {
-                                            Scaffold.of(context)
+                                            ScaffoldMessenger.of(context)
                                                 .showSnackBar(SnackBar(
                                               content: Text(
                                                   "URL copied to clipboard!"),
@@ -565,7 +565,7 @@ class WorkshopDetailCustomWidgets {
                             : InkWell(
                                 onTap: () async {
                                   if (AppConstants.isGuest) {
-                                    scaffoldKey.currentState
+                                    scaffoldMessengerKey.currentState
                                         .showSnackBar(SnackBar(
                                       content: Text('Please Log In first'),
                                       duration: Duration(seconds: 2),

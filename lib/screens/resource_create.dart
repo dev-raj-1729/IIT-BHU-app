@@ -256,7 +256,7 @@ class _ResourceCreateScreenState extends State<ResourceCreateScreen> {
 
                             if (success) Navigator.of(context).pop(true);
 
-                            Scaffold.of(context).showSnackBar(SnackBar(
+                            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                                 content: editMode
                                     ? Text("Editing resource")
                                     : Text("Creating Resource")));
