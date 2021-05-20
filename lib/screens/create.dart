@@ -1081,7 +1081,21 @@ class _CreateEditScreenState extends State<CreateEditScreen> {
                                   ),
                                   Expanded(
                                     flex: 2,
-                                    child: OutlineButton(
+                                    child: OutlinedButton(
+                                      style: outlineButtonStyle.copyWith(
+                                        side: MaterialStateProperty.resolveWith<
+                                            BorderSide>((states) {
+                                          if (states
+                                              .contains(MaterialState.pressed))
+                                            return BorderSide(
+                                              color: Theme.of(context)
+                                                  .colorScheme
+                                                  .primary,
+                                              width: 1,
+                                            );
+                                          return null;
+                                        }),
+                                      ),
                                       onPressed: () {
                                         int _id =
                                             _searchedProfileresult[index].id;
