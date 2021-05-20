@@ -8,6 +8,7 @@ import 'package:iit_app/external_libraries/spin_kit.dart';
 import 'package:iit_app/model/appConstants.dart';
 import 'package:iit_app/model/built_post.dart';
 import 'package:iit_app/model/colorConstants.dart';
+import 'package:iit_app/model/deprecatedWidgetsStyle.dart';
 import 'package:iit_app/pages/club_entity/clubPage.dart';
 import 'package:iit_app/screens/create.dart';
 import 'package:iit_app/ui/club_council_entity_common/description.dart';
@@ -651,11 +652,13 @@ class ClubCouncilAndEntityWidgets {
           title: Text(titleText ?? ""),
           content: Text(bodyText ?? ""),
           actions: <Widget>[
-            FlatButton(
+            TextButton(
+              style: flatButtonStyle,
               child: Text("No. Take Me Back."),
               onPressed: () => Navigator.of(context).pop(false),
             ),
-            FlatButton(
+            TextButton(
+              style: flatButtonStyle,
               child: Text("Yup!"),
               onPressed: () => Navigator.of(context).pop(true),
             ),

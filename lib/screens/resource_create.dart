@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:iit_app/data/internet_connection_interceptor.dart';
 import 'package:iit_app/model/appConstants.dart';
 import 'package:iit_app/model/built_post.dart';
+import 'package:iit_app/model/deprecatedWidgetsStyle.dart';
 
 class ResourceCreateScreen extends StatefulWidget {
   @override
@@ -85,7 +86,8 @@ class _ResourceCreateScreenState extends State<ResourceCreateScreen> {
                     ? Text("Succesfully added")
                     : Text("Unsuccessful. Please try again"),
                 actions: <Widget>[
-                  FlatButton(
+                  TextButton(
+                    style: flatButtonStyle,
                     child: Text("Okay"),
                     onPressed: () => Navigator.pop(context),
                   )
@@ -126,7 +128,8 @@ class _ResourceCreateScreenState extends State<ResourceCreateScreen> {
                     ? Text("Succesfully edited")
                     : Text("Unsuccessful! Please try again"),
                 actions: <Widget>[
-                  FlatButton(
+                  TextButton(
+                    style: flatButtonStyle,
                     child: Text("Okay"),
                     onPressed: () => Navigator.pop(context),
                   )

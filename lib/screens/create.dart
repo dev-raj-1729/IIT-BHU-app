@@ -9,6 +9,7 @@ import 'dart:async';
 import 'package:iit_app/model/built_post.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:iit_app/model/colorConstants.dart';
+import 'package:iit_app/model/deprecatedWidgetsStyle.dart';
 import 'package:iit_app/model/workshopCreator.dart';
 import 'package:iit_app/ui/dialogBoxes.dart';
 import 'package:image_picker/image_picker.dart';
@@ -153,7 +154,8 @@ class _CreateEditScreenState extends State<CreateEditScreen> {
             title: Text(title ?? '(No Title)'),
             content: Text(innerText ?? '(No Inner Text)'),
             actions: <Widget>[
-              FlatButton(
+              TextButton(
+                style: flatButtonStyle,
                 child: Text('Ok.'),
                 onPressed: () {
                   Navigator.of(context).pop();
@@ -254,7 +256,8 @@ class _CreateEditScreenState extends State<CreateEditScreen> {
                 ),
               ),
               actions: <Widget>[
-                FlatButton(
+                TextButton(
+                  style: flatButtonStyle,
                   child: Text('Ok.'),
                   onPressed: () {
                     this._tagCreateController.text = '';
@@ -278,13 +281,15 @@ class _CreateEditScreenState extends State<CreateEditScreen> {
               content: Text(
                   '''Are you sure you want to delete this tag for this club?\nNote that this option is NOT to be used to remove the tag for the ${widget.isWorkshopOrEvent}.\nThis is to permanently delete this tag for ${_isEntity ? widget.entity.name : widget.club.name}.'''),
               actions: <Widget>[
-                FlatButton(
+                TextButton(
+                  style: flatButtonStyle,
                   child: Text('No.'),
                   onPressed: () {
                     Navigator.of(context).pop();
                   },
                 ),
-                FlatButton(
+                TextButton(
+                  style: flatButtonStyle,
                   child: Text('Yes.'),
                   onPressed: () async {
                     final deleteTag = TagDelete((b) => b..tag_name = tagName);
