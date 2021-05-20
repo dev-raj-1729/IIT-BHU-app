@@ -7,6 +7,7 @@ import 'package:flutter/services.dart';
 import 'package:iit_app/model/appConstants.dart';
 import 'package:iit_app/model/built_post.dart';
 import 'package:iit_app/model/colorConstants.dart';
+import 'package:iit_app/model/deprecatedWidgetsStyle.dart';
 import 'package:iit_app/screens/create.dart';
 import 'package:iit_app/screens/resource_create.dart';
 import 'package:iit_app/services/dynamicLink.dart';
@@ -165,7 +166,8 @@ class WorkshopDetailCustomWidgets {
           (workshopDetail != null && workshopDetail.is_por_holder != null)
               ? (workshopDetail.is_por_holder ||
                       workshopDetail.is_workshop_contact)
-                  ? RaisedButton(
+                  ? ElevatedButton(
+                      style: raisedButtonStyle,
                       child: Text("Add resources"),
                       onPressed: () => {
                         Navigator.push(
@@ -620,7 +622,8 @@ class WorkshopDetailCustomWidgets {
   }
 
   Row _getLocationOnMaps() {
-    final mapButton = RaisedButton(
+    final mapButton = ElevatedButton(
+      style: raisedButtonStyle,
       child: Row(
         children: [Icon(Icons.map), Text("see map")],
       ),

@@ -105,7 +105,8 @@ class ClubCouncilAndEntityWidgets {
                     ? Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
-                          RaisedButton(
+                          ElevatedButton(
+                              style: raisedButtonStyle,
                               child: Text('Create workshop'),
                               onPressed: () async {
                                 await Navigator.of(context).push(
@@ -122,7 +123,8 @@ class ClubCouncilAndEntityWidgets {
                               }),
                           (isClub && clubDetail.is_por_holder) ||
                                   (isEntity && entityDetail.is_por_holder)
-                              ? RaisedButton(
+                              ? ElevatedButton(
+                                  style: raisedButtonStyle,
                                   child: Text('Create event'),
                                   onPressed: () async {
                                     await Navigator.of(context).push(
