@@ -771,7 +771,7 @@ class ClubCouncilAndEntityWidgets {
       );
     }
 
-    var _icons = List<Widget>();
+    var _icons = <Widget>[];
     if (map.youtube_url != null && map.youtube_url.length != 0)
       _icons.add(
         _buildButtonColumn(
@@ -817,7 +817,7 @@ class ClubCouncilAndEntityWidgets {
 
   static Container getSecies(BuildContext context,
       {SecyPost secy, jointSecy, isEntity = false, isSports = false}) {
-    var _displayList = List<Widget>();
+    var _displayList = <Widget>[];
     if (jointSecy.length > 0) {
       _displayList.add(SizedBox(width: 20));
       _displayList.add(ClubCouncilAndEntityWidgets.getPosHolder(
