@@ -103,6 +103,13 @@ class _LoginPageState extends State<LoginPage> {
                           return null;
                         },
                       ),
+                      foregroundColor: MaterialStateProperty.resolveWith<Color>(
+                        (states) {
+                          if (states.contains(MaterialState.pressed))
+                            return Colors.grey[400];
+                          return Colors.grey;
+                        },
+                      ),
                     ),
                     onPressed: AppConstants.logInButtonEnabled == false
                         ? null
@@ -120,8 +127,9 @@ class _LoginPageState extends State<LoginPage> {
                             padding: const EdgeInsets.only(left: 10),
                             child: Text(
                               'Sign in with Google',
-                              style:
-                                  TextStyle(fontSize: 20, color: Colors.grey),
+                              style: TextStyle(
+                                fontSize: 20,
+                              ),
                             ),
                           )
                         ],
